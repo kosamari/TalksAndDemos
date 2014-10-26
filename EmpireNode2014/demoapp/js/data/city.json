@@ -1,0 +1,20 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.355165,35.458606]},"properties":{"name":"California","population":33871648}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-72.874365,41.494852]},"properties":{"name":"Connecticut","population":3405565}},
+{"type":"Feature","id":"08","geometry":{"type":"Point","coordinates":[-105.203628,39.500656]},"properties":{"name":"Colorado","population":4301261}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-75.561908,39.397164]},"properties":{"name":"Delaware","population":783600}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.014001,38.910092]},"properties":{"name":"District of Columbia","population":572059}},
+{"type":"Feature","id":"04","geometry":{"type":"Point","coordinates":[-111.828711,33.373506]},"properties":{"name":"Arizona","population":5130632}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.634622,27.795850]},"properties":{"name":"Florida","population":15982378}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.261515,40.163935]},"properties":{"name":"Indiana","population":6080485}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-69.719931,44.313614]},"properties":{"name":"Maine","population":1274923}},
+{"type":"Feature","id":"53","geometry":{"type":"Point","coordinates":[-121.624501,47.341728]},"properties":{"name":"Washington","population":5894121}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-76.797396,39.145653]},"properties":{"name":"Maryland","population":5296486}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-71.463342,43.153046]},"properties":{"name":"New Hampshire","population":1235786}},
+{"type":"Feature","id":"04","geometry":{"type":"Point","coordinates":[-111.828711,33.373506]},"properties":{"name":"Arizona","population":5130632}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-74.645228,41.507548]},"properties":{"name":"New York","population":18976457}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-79.667654,35.553334]},"properties":{"name":"North Carolina","population":8049313}},
+{"type":"Feature","id":"40","geometry":{"type":"Point","coordinates":[-96.834653,35.597940]},"properties":{"name":"Oklahoma","population":3450654}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-71.448902,41.753318]},"properties":{"name":"Rhode Island","population":1048319}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.032387,34.034551]},"properties":{"name":"South Carolina","population":4012012}}
+]}

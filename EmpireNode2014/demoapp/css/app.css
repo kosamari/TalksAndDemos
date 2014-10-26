@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../public/font/OpenSans-Regular-webfont.eot');
+  src: url('../public/font/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../public/font/OpenSans-Regular-webfont.woff') format('woff'),
+       url('../public/font/OpenSans-Regular-webfont.ttf') format('truetype'),
+       url('../public/font/OpenSans-Regular-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'open_sansregular';
+  color: #fff;
+  background: #E5E9EC;
+  margin: 0;
+}
+
+#content{
+  position: absolute;
+  right:0px;
+  width: 65%;
+}
+#sidebar{
+  position: absolute;
+  top:0px;
+  bottom:0px;
+  width:35%;
+  background: #0AA699
+}
+
+/* 
+Side bar items
+*/
+.sidebar-shadow{
+  background-color: rgba(0, 0, 0, 0.28)
+}
+.sidebar-item-top{
+  padding : 5% 10% 10% 10%;
+  width: 80%;
+}
+.sidebar-item{
+  padding : 5% 10%;
+  width: 80%;
+}
+.time{
+  font-size: 5em;
+}
+.day{
+  font-size: 3em;
+}
+#activity-data{
+  font-size: 4em;
+}
+#message-data{
+  font-size: 2em;
+}
+
+/* 
+Style for d3 graph
+*/
+.states {
+  fill: RGBA(10, 166, 153, 0.5);
+  stroke: #E5E9EC;
+  stroke-width:1px;
+}
+
+.symbol {
+  fill: orange;
+  stroke: orange;
+  stroke-width:10px;
+  stroke-opacity: .5;
+}
+
+/*
+Style for video
+*/
+#videoview{
+  position: absolute;
+  background: black;
+}

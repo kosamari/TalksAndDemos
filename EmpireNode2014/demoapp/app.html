@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Screen Application</title>
+    <link rel="stylesheet" type="text/css" href="css/lib/odometer-theme-minimal.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+  </head>
+  <body>
+    <div id="content">
+      <div id="graph"></div>
+      <div id="video" hidden>
+        <video id="videoview" autoplay></video>
+      </div>
+    </div>
+    <div id="sidebar" style="-webkit-app-region: drag">
+      <div id="sidebar-container">
+        <div class="sidebar-item-top sidebar-shadow">
+          <div class="time"><span class="hour odometer"></span>:<span class="minute1 odometer"></span><span class="minute2 odometer"></span></div>
+          <div class="day date"></div>
+        </div>
+      
+        <div class="sidebar-item">
+          <h1>activities</h1>
+          <div id="activity-data" class="odometer"></div>
+        </div>
+
+        <div class="sidebar-item">
+          <h1>message</h1>
+          <div id="message-data"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/lib/topojson.v1.min.js"></script>
+    <script src="js/lib/queue.v1.min.js"></script>
+    <script src="js/lib/odometer.min.js"></script>
+    <script src="js/lib/jquery-1.11.0.min.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/d3map.js"></script>
+    <script>
+      /*
+      Start server.js
+      */
+      var server = require('./js/server.js');
+      server.run(function(){
+        $.getScript('http://localhost:9001/socket.io/socket.io.js', function(){
+          socket = io.connect('http://localhost:9001');
+          $.getScript('./js/webrtc.js');
+        })
+      });
+
+
+      /*
+      Resize Elements on window resize
+      */
+      function videoResize(){
+        var width = $('#content').width();
+        var height = $(window).height();
+        $('#videoview').width(width);
+        $('#videoview').height(width*0.75);
+        $('#videoview').css('margin-top', (height-(width*0.75))/2);
+      }
+
+      function fontResize() {
+        var resolution = 1024;
+        var font = 13;
+        var width = $(window).width();
+        var newFont = font * (width/resolution);
+        $('body').css('font-size', newFont);
+      };
+
+      $(document).ready(function(){
+        fontResize();
+        videoResize();
+        $(window).bind('resize', function() {
+           fontResize();
+           videoResize();
+           mapRender();
+        });
+      });
+
+      /*
+      Menu Bar
+      */
+      var gui = require('nw.gui');
+      var win = gui.Window.get();
+      var menubar = new gui.Menu({ type: 'menubar' });
+      var mainMenu = new gui.Menu();
+      var slideMenu = new gui.Menu();
+
+      mainMenu.append(new gui.MenuItem({
+        label: 'version',
+        click: function(){
+            alert('Version : 0.0.1');
+        }
+      }));
+
+      menubar.append(new gui.MenuItem({
+        label: 'MainMenu',
+        submenu: mainMenu
+      }));
+
+      menubar.append(new gui.MenuItem({
+        label: 'Slide Control',
+        submenu: slideMenu
+      }));
+
+      slideMenu.append(new gui.MenuItem({
+        label: 'Debug',
+        click: function (){
+          win.showDevTools();
+        } 
+      }));
+
+      slideMenu.append(new gui.MenuItem({
+        label: 'Fullscreen',
+        click: function (){
+          win.enterFullscreen();
+        } 
+      }));
+
+      slideMenu.append(new gui.MenuItem({
+        label: 'Reload',
+        click: function (){
+          win.reload();
+        } 
+      }));
+
+      win.menu = menubar;
+    </script>
+  </body>
+</html>
