@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Application Controller</title>
+    <link rel="stylesheet" type="text/css" href="controller.css">
+  </head>
+  <body>
+    <div class="card">
+      <div class="headder">message</div>
+      <div class="center">
+        <textarea id="message" maxlength="60"></textarea>
+      </div>
+      <div class="center">
+        <button id="messagebtn" class="btn" onclick="sendMessage()" disabled/>send</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <div class="headder">video control</div>
+      <div class="center">
+         <video id="videopreview" autoplay></video>
+      </div>
+      <div class="center">
+        <button id="videobtn" class="btn" onclick="video()" disabled>Video Start</button>
+        <button id="connectbtn"  class="btn" onclick="connect()" disabled hidden>Broadcast</button>
+      </div>
+    </div>
+
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="http://{{ip}}:{{port}}/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      // connect to local server
+      var socket = io.connect('http://{{ip}}:{{port}}');
+      
+      // socket.ip connections check
+      socket.on('connect', function () {
+        $('.btn').prop('disabled', false);
+      });
+      socket.on('disconnect', function (client) {
+        $('.btn').prop('disabled', true);
+      });
+
+      //send "message" to the app
+      function sendMessage() {
+        var message = document.getElementById('message').value.replace( /[@$%<>'"&|]/g, '' )
+        document.getElementById('message').value = '';
+        socket.emit('msg', {message:message});
+      }
+    </script>
+    <script src="videocast.js"></script>
+  </body>
+</html>

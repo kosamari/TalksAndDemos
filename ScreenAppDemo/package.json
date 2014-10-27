@@ -1,0 +1,17 @@
+{
+  "name": "ScreenApplication",
+  "main": "app.html",
+  "dependencies": {
+    "socket.io": "~1.1.0",
+    "hbs": "~2.7.0",
+    "express": "~4.10.0",
+    "nodewebkit": "~0.10.5",
+    "jquery": "~2.1.1"
+  },
+  "scripts": {
+    "start": "./node_modules/nodewebkit/bin/nodewebkit"
+  },
+  "window": {
+    "frame": false
+  }
+}
